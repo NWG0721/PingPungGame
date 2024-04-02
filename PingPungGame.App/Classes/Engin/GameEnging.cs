@@ -7,6 +7,17 @@ namespace PingPungGame.App
     public static class GameEnging
     {
         private static int _accidents;
+
+        public static Rectangle Rect1 { set; get; }
+
+        public static Rectangle Rect2 { set; get; }
+
+        public static Rectangle Rect3 { set; get; }
+
+        public static Rectangle Rect4 { set; get; }
+
+        public static Rectangle Rect5 { set; get; }
+
         public static int GameResponse(bool _true)
         {
             //string backer = BallReaction();
@@ -37,40 +48,65 @@ namespace PingPungGame.App
             //return move;
 
         }
-        public static Rectangle Rect1
-        {
-            set;
-            get;
-        }
-        public static Rectangle Rect2
-        {
-            get;
-            set;
-        }
-        public static Rectangle Rect3
-        {
-            get;
-            set;
-        }
-        public static Rectangle Rect4
-        {
-            get;
-            set;
-        }
-        public static Rectangle Rect5
-        {
-            get;
-            set;
-        }
+
         public static int[,] PointMaker(int x1, int y1, int x2, int y2)
         {
+            /*
+             
+            This function is for 
+            Making a new point for
+            Teleporting a ball to another
+            Location ( _thirdPoint ) of game 
+
+            Example : 
+                
+                _firstPoint : x1 , y1 
+                    x1 = 150 (It's a random variable)
+                    y1 = 300 (This is fixed for the first time of playing on 300)
+
+            -----------------------------------------------------------------------------
+
+            Convert to vectorial = LacationConvertor(int _x, int _y)
+
+                    x1 =>  426 - 150 =   276 <-- This is an answer
+                    y1 =>  264 - 300 =   -36 <-- This is an answer
+
+            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+            
+                _secondPoint : x2 , y2
+                    x2 = 22.5~ 22   OR   (  (852 / 2) - (45 / 2)  )
+                    y2 = 401    OR   (   446-45  )
+
+            -----------------------------------------------------------------------------
+
+            Convert to vectorial = LacationConvertor(int _x, int _y)
+
+                    x2 =>  426 - 22 =   404 <-- This is an answer
+                    y2 =>  264 - 401 =   -137 <-- This is an answer
+
+                _thirdPoint : x3 , y3 
+
+            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+                        
+                _slope      y2 - y1   -137 - (-36)   -36
+                            ─────── = ──────────── = ─── = -36/128 = -0.28125
+                            x2 - x1    404 - 276     128
+
+            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+                If an  accident was on the walls: 
+                    The location of ball usialy is on the 
+                    
+
+             */
             int[,] _firstPoint;
             int[,] _secondPoint;
-            int[,] _thirdPoint;
+            int[,] _thirdPoint = new int[1,1];
 
-            _firstPoint = LacationConvertor(x1,y1);
+            _firstPoint = LacationConvertor(x1, y1);
             _firstPoint = LacationConvertor(x2, y2);
             return _thirdPoint;
+
 
         }
         private static int[,] LacationConvertor(int _x, int _y)

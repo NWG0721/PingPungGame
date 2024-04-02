@@ -66,7 +66,7 @@ namespace PingPungGame.App
             btnStart.Visible = false;
             Thread.Sleep(1000);
             picBall.Location = new Point((852 / 2) - (45 / 2), 446 - 45);
-                _thirdPoint = GameEnging.PointMaker(_random, 300, (852 / 2) - (45 / 2), 446-45 , _isInsert);
+                _thirdPoint = GameEnging.PointMaker(_random, 300, (852 / 2) - (45 / 2), 446-45);
                 //MessageBox.Show($"X = {_thirdPoint[0, 0]} , Y = {_thirdPoint[1, 0]}");
                 picBall.Location = new Point(_thirdPoint[0, 0], _thirdPoint[1, 0]);
                 //MessageBox.Show(_random.ToString());
