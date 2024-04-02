@@ -101,7 +101,7 @@ namespace PingPungGame.App
              */
             int[,] _firstPoint;
             int[,] _secondPoint;
-            int[,] _thirdPoint = new int[1,1];
+            int[,] _thirdPoint = new int[1, 1];
 
             _firstPoint = LacationConvertor(x1, y1);
             _firstPoint = LacationConvertor(x2, y2);
