@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -8,45 +9,68 @@ namespace PingPungGame.App
     {
         private static int _accidents;
 
-        public static Rectangle Rect1 { set; get; }
+        public static Rectangle Rect1 { set; get; } // Ball
 
-        public static Rectangle Rect2 { set; get; }
+        public static Rectangle Rect2 { set; get; } // Racket
 
-        public static Rectangle Rect3 { set; get; }
+        public static Rectangle Rect3 { set; get; } // S1
 
-        public static Rectangle Rect4 { set; get; }
+        public static Rectangle Rect4 { set; get; } // S2
 
-        public static Rectangle Rect5 { set; get; }
+        public static Rectangle Rect5 { set; get; } // S3
 
-        public static int GameResponse(bool _true)
+        public static int GameResponse()
         {
-            //string backer = BallReaction();
-            //return backer;
-            if (Rect1.IntersectsWith(Rect2) || Rect1.IntersectsWith(Rect3) || Rect1.IntersectsWith(Rect4) || Rect1.IntersectsWith(Rect5))
+            Random _rand = new Random();
+            int _randNumbr = _rand.Next(0, 2);
+            if (Rect1.IntersectsWith(Rect2))
             {
-                //MessageBox.Show("1");
-                if (Rect1.IntersectsWith(Rect2) || Rect1.IntersectsWith(Rect4))
+                if (_randNumbr == 1)
                 {
-                    //MessageBox.Show("2");
-                    return 2;
-                }
-                if (Rect1.IntersectsWith(Rect3) || Rect1.IntersectsWith(Rect5))
-                {
-
-                    //MessageBox.Show("1");
-                    return 1;
-
+                    return 4;
                 }
                 else
-                { return 0; }
-
+                {
+                    return 2;
+                }
+            }
+            if (Rect1.IntersectsWith(Rect3))
+            {
+                if (_randNumbr == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            if (Rect1.IntersectsWith(Rect4))
+            {
+                if (_randNumbr == 1)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            if (Rect1.IntersectsWith(Rect5))
+            {
+                if (_randNumbr == 1)
+                {
+                    return 4;
+                }
+                else
+                {
+                    return 2;
+                }
             }
             else
             {
                 return 0;
             }
-            //return move;
-
         }
 
         public static int[,] PointMaker(int x1, int y1, int x2, int y2)
