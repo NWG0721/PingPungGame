@@ -43,11 +43,11 @@ namespace PingPungGame.App
         private void timer1_Tick(object sender, EventArgs e)
         {
             int[] _ballLocation = new int[2];
-            GameEnging.Rect1 = picBall.Bounds;//        Ball
-            GameEnging.Rect2 = txtRacket.Bounds;//      Down
-            GameEnging.Rect3 = s1.Bounds;//             Side Left
-            GameEnging.Rect4 = s2.Bounds;//             Up
-            GameEnging.Rect5 = s3.Bounds;//             Side Right
+            GameEnging.Ball = picBall.Bounds;//        Ball
+            GameEnging.Racket = txtRacket.Bounds;//      Down
+            GameEnging.LSide = s1.Bounds;//             Side Left
+            GameEnging.TSide = s2.Bounds;//             Up
+            GameEnging.RSide = s3.Bounds;//             Side Right
 
             int _accident = GameEnging.GameResponse();
 
@@ -55,36 +55,13 @@ namespace PingPungGame.App
             {
                 _isInsert = _accident;
             }
-            switch (_isInsert)
-            {
-                //------------------------------| If accidents with rect 2  |------------------------------//
-                case 1:
-                    _ballLocation[0] = picBall.Location.X;
-                    _ballLocation[1] = picBall.Location.Y;
-                    picBall.Location = new Point(_ballLocation[0] + 1, _ballLocation[1] + 1);
-                    break;
+            _ballLocation[0] = picBall.Location.X;
+            _ballLocation[1] = picBall.Location.Y;
 
-                //------------------------------| If accidents with rect 2 |------------------------------//
-                case 2:
-                    _ballLocation[0] = picBall.Location.X;
-                    _ballLocation[1] = picBall.Location.Y;
-                    picBall.Location = new Point(_ballLocation[0] + 1, _ballLocation[1] - 1);
-                    break;
-                //------------------------------| If accidents with rect 3 |------------------------------//
-                case 3:
-                    _ballLocation[0] = picBall.Location.X;
-                    _ballLocation[1] = picBall.Location.Y;
-                    picBall.Location = new Point(_ballLocation[0] - 1, _ballLocation[1] + 1);
-                    break;
-                //------------------------------| If accidents with rect 3 |------------------------------//
-                case 4:
-                    _ballLocation[0] = picBall.Location.X;
-                    _ballLocation[1] = picBall.Location.Y;
-                    picBall.Location = new Point(_ballLocation[0] - 1, _ballLocation[1] - 1);
-                    break;
-                default:
-                    _isInsert = 0;
-                    break;
+            _ballLocation = GameEnging.PointMaker(_isInsert,_ballLocation);
+            if (_ballLocation[0] != -1 && _ballLocation[1] != -1)
+            {
+                picBall.Location = new Point(_ballLocation[0], _ballLocation[1]);
             }
             //textBox1.Text += _isInsert.ToString();
             if (picBall.Location.Y > 480)
