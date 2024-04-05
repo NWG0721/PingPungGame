@@ -111,47 +111,72 @@ namespace PingPungGame.App
 
             }
         }
-        private static int[,] LacationConvertor(int _x, int _y)
+        public static int PointCrator()
         {
-            /*
+            int _random;
+            Random random = new Random();
+            while (true)
+            {
+                _random = random.Next(299, 299 + 255);
+                if (_random != 444)
+                {
+                    return _random;
+                }
 
-            The big picture of game form is: s
-
-                852, 772
-
-            The small picture of game form is: 
-
-                852, 528
-
-            Convert  --> 
-
-                852/2 => 426 => X = 0
-
-                528/2 => 264 => Y = 0
-
-            Example : 
-
-                Input X = 540 , Y = 300 ->
-
-                       X -> 540 - 426
-
-                       Y -> 300 - 264
-
-                Output X = 24 , Y = 36
-            
-            */
-
-            //------------------------------| Code Starts |------------------------------//
-            int _mainX = 426;
-            int _mainY = 264;
-
-            int _xCalc = _x - _mainX;
-            int _yCalc = _y - _mainY;
-
-            int[,] _newLocation = { { _xCalc }, { _yCalc } };
-
-            return _newLocation;
-            //------------------------------| Code Ends |------------------------------//
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+//------------------------------| There are for version 2 or more |------------------------------//
+
+//private static int[,] LacationConvertor(int _x, int _y)
+//{
+//    /*
+
+//    The big picture of game form is: s
+
+//        852, 772
+
+//    The small picture of game form is: 
+
+//        852, 528
+
+//    Convert  --> 
+
+//        852/2 => 426 => X = 0
+
+//        528/2 => 264 => Y = 0
+
+//    Example : 
+
+//        Input X = 540 , Y = 300 ->
+
+//               X -> 540 - 426
+
+//               Y -> 300 - 264
+
+//        Output X = 24 , Y = 36
+
+//    */
+
+//    //------------------------------| Code Starts |------------------------------//
+//    int _mainX = 426;
+//    int _mainY = 264;
+
+//    int _xCalc = _x - _mainX;
+//    int _yCalc = _y - _mainY;
+
+//    int[,] _newLocation = { { _xCalc }, { _yCalc } };
+
+//    return _newLocation;
+//    //------------------------------| Code Ends |------------------------------//
+//}

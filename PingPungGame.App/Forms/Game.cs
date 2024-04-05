@@ -21,23 +21,13 @@ namespace PingPungGame.App
         {
             InitializeComponent();
         }
-        private int _random;
         private int[,] _thirdPoint;
         private int _isInsert;
         private void Form1_Load(object sender, EventArgs e)
         {
             txtRacket.Text = DataGetter.GetUserName;
-            Random random = new Random();
-            while (true)
-            {
-                _random = random.Next(299, 299+255);
-                if (_random != 444)
-                {
-                    break;
-                }
 
-            }
-            picBall.Location = new Point(_random, 404);
+            picBall.Location = new Point(GameEnging.PointCrator(), 404);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
