@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.txtRacket = new System.Windows.Forms.TextBox();
             this.picBall = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -111,20 +111,20 @@
             // 
             this.chartLocation.BackColor = System.Drawing.Color.Transparent;
             this.chartLocation.BorderlineColor = System.Drawing.Color.Red;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.Black;
-            chartArea2.BorderColor = System.Drawing.Color.BlanchedAlmond;
-            chartArea2.Name = "ChartArea1";
-            this.chartLocation.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartLocation.Legends.Add(legend2);
+            chartArea3.BackSecondaryColor = System.Drawing.Color.Black;
+            chartArea3.BorderColor = System.Drawing.Color.BlanchedAlmond;
+            chartArea3.Name = "ChartArea1";
+            this.chartLocation.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartLocation.Legends.Add(legend3);
             this.chartLocation.Location = new System.Drawing.Point(16, 504);
             this.chartLocation.Name = "chartLocation";
-            series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Cross;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series2.Legend = "Legend1";
-            series2.Name = "Location";
-            this.chartLocation.Series.Add(series2);
+            series3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Cross;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.Legend = "Legend1";
+            series3.Name = "Location";
+            this.chartLocation.Series.Add(series3);
             this.chartLocation.Size = new System.Drawing.Size(364, 217);
             this.chartLocation.TabIndex = 6;
             // 
@@ -170,6 +170,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Game";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PingPungGame";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBall)).EndInit();
