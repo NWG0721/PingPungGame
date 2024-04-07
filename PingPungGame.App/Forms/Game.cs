@@ -17,12 +17,16 @@ namespace PingPungGame.App
 {
     public partial class Game : Form
     {
+        private int[,] _thirdPoint;
+        private int _isInsert;
+
+
         public Game()
         {
             InitializeComponent();
         }
-        private int[,] _thirdPoint;
-        private int _isInsert;
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             txtRacket.Text = DataGetter.GetUserName;
@@ -33,10 +37,15 @@ namespace PingPungGame.App
         private void timer1_Tick(object sender, EventArgs e)
         {
             int[] _ballLocation = new int[2];
+
             GameEnging.Ball = picBall.Bounds;//        Ball
+
             GameEnging.Racket = txtRacket.Bounds;//      Down
+
             GameEnging.LSide = s1.Bounds;//             Side Left
+
             GameEnging.TSide = s2.Bounds;//             Up
+
             GameEnging.RSide = s3.Bounds;//             Side Right
 
             int _accident = GameEnging.GameResponse();
@@ -45,10 +54,12 @@ namespace PingPungGame.App
             {
                 _isInsert = _accident;
             }
+
             _ballLocation[0] = picBall.Location.X;
             _ballLocation[1] = picBall.Location.Y;
 
             _ballLocation = GameEnging.PointMaker(_isInsert,_ballLocation);
+
             if (_ballLocation[0] != -1 && _ballLocation[1] != -1)
             {
                 picBall.Location = new Point(_ballLocation[0], _ballLocation[1]);
@@ -56,10 +67,12 @@ namespace PingPungGame.App
             //textBox1.Text += _isInsert.ToString();
             if (picBall.Location.Y > 480)
             {
-                MessageBox.Show("You are a motherfucking loser, bitch!");
                 timer1.Enabled = false;
+                //MessageBox.Show("You are a motherfucking loser, bitch!");
+                MessageBox.Show("You are a loser!");
+
             }
-            //chartLocation.Series["Location"].Points.AddXY(_isInsert - (_isInsert - 1), _isInsert);
+            chartLocation.Series["Location"].Points.AddXY(_isInsert - (_isInsert - 1), _isInsert);
 
         }
 
